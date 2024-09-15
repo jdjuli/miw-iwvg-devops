@@ -1,0 +1,15 @@
+name: DevOps - Unit and Integration Tests
+on:
+  push:
+    branches: [ 'main', 'develop', 'release-*' ]
+jobs:
+  test:
+    name: Run tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with: { fetch-depth: '1' }
+      - uses: actions/setup-java@v1
+        with: { java-version: 17 }
+      - name: Unit & Integration Tests
+        run: mvn -B clean verify
