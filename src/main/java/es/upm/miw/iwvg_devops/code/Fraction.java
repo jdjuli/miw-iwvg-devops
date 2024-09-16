@@ -6,6 +6,7 @@ package es.upm.miw.iwvg_devops.code;
 public class Fraction {
 
     public Fraction(int numerator, int denominator) {
+        //Constructor leaved empty because it's being implemented on issue #5
     }
 
     public Fraction() {
