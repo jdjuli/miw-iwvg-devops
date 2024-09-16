@@ -28,7 +28,7 @@ public class UserTest {
     public void testDefaultConstructor() {
         johnDoe = new User();
         johnDoe.setName("John");
-        johnDoe.setFamilyName("DoeA");
+        johnDoe.setFamilyName("Doe");
         johnDoe.setFractions(new ArrayList<>());
         Assertions.assertNull(johnDoe.getId());
         Assertions.assertEquals("John", johnDoe.getName());
