@@ -23,6 +23,68 @@ public class FractionTest {
     }
 
     @Test
+    public void testIsProper() {
+        Fraction fraction1 = new Fraction(2, 3);
+        Fraction fraction2 = new Fraction(5, 4);
+        Fraction fraction3 = new Fraction();
+        Assertions.assertTrue(fraction1.isProper());
+        Assertions.assertFalse(fraction2.isProper());
+        Assertions.assertFalse(fraction3.isProper());
+    }
+
+    @Test
+    public void testIsImproper() {
+        Fraction fraction1 = new Fraction(2, 3);
+        Fraction fraction2 = new Fraction(5, 4);
+        Fraction fraction3 = new Fraction();
+        Assertions.assertFalse(fraction1.isImproper());
+        Assertions.assertTrue(fraction2.isImproper());
+        Assertions.assertFalse(fraction3.isImproper());
+    }
+
+    @Test
+    public void testIsEquivalent() {
+        Fraction fraction1 = new Fraction(2, 3);
+        Fraction fraction2 = new Fraction(5, 4);
+        Fraction fraction3 = new Fraction(10, 15);
+        Assertions.assertFalse(fraction1.isEquivalent(fraction2));
+        Assertions.assertTrue(fraction1.isEquivalent(fraction3));
+    }
+
+    @Test
+    public void testAdd() {
+        Fraction fraction1 = new Fraction(2, 3);
+        Fraction fraction2 = new Fraction(5, 4);
+        Fraction fraction3 = new Fraction(1, 1);
+        fraction1.add(fraction2);
+        Assertions.assertEquals((2.0 / 3.0 + 5.0 / 4.0), fraction1.decimal(), 1e-5);
+        fraction3.add(fraction1);
+        Assertions.assertEquals(fraction3.decimal(), fraction1.decimal() + 1.0, 1e-5);
+    }
+
+    @Test
+    public void testMultiply() {
+        Fraction fraction1 = new Fraction(2, 3);
+        Fraction fraction2 = new Fraction(5, 4);
+        Fraction fraction3 = new Fraction();
+        fraction1.multiply(fraction2);
+        Assertions.assertEquals((2.0 / 3.0) * (5.0 / 4.0), fraction1.decimal(), 1e-5);
+        fraction3.multiply(fraction1);
+        Assertions.assertEquals(fraction3.decimal(), fraction1.decimal(), 1e-5);
+    }
+
+    @Test
+    public void testDivide() {
+        Fraction fraction1 = new Fraction(2, 3);
+        Fraction fraction2 = new Fraction(5, 4);
+        Fraction fraction3 = new Fraction();
+        fraction1.divide(fraction2);
+        Assertions.assertEquals((2.0 / 3.0) / (5.0 / 4.0), fraction1.decimal(), 1e-5);
+        fraction3.divide(fraction1);
+        Assertions.assertEquals(fraction3.decimal(), 1.0 / fraction1.decimal(), 1e-5);
+    }
+
+    @Test
     public void testToString() {
         Fraction fraction = new Fraction(4, 5);
         Assertions.assertEquals("Fraction{numerator=4, denominator=5}", fraction.toString());
