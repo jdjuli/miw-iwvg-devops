@@ -75,4 +75,12 @@ public class UsersDatabase {
                 .findFirst()
                 .orElse(null);
     }
+
+    public Stream<String> findUserIdByAllProperFraction() {
+        return findAll()
+                .filter(user -> user.getFractions()
+                        .stream()
+                        .allMatch(Fraction::isProper))
+                .map(User::getId);
+    }
 }

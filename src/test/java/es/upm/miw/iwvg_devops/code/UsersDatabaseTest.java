@@ -3,6 +3,8 @@ package es.upm.miw.iwvg_devops.code;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.util.stream.Stream;
+
 class UsersDatabaseTest {
 
     final UsersDatabase usersDatabase = new UsersDatabase();
@@ -57,5 +59,11 @@ class UsersDatabaseTest {
         Assertions.assertEquals(0.0, fractionUserId5.decimal(), 1e-5);
         Fraction fractionUserId6 = usersDatabase.findFirstProperFractionByUserId("6");
         Assertions.assertNull(fractionUserId6);
+    }
+
+    @Test
+    void findUserIdByAllProperFraction() {
+        Stream<String> userIds = usersDatabase.findUserIdByAllProperFraction();
+        Assertions.assertEquals(0, userIds.count());
     }
 }
