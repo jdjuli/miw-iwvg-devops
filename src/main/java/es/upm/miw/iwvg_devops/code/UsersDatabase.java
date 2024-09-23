@@ -49,4 +49,13 @@ public class UsersDatabase {
                 new User("6", "Paula", "Torres", fractions6)
         );
     }
+
+    public Fraction findFractionMultiplicationByUserFamilyName(String familyName) {
+        return findAll().filter(user -> user.getFamilyName().equals(familyName))
+                .flatMap(user -> user.getFractions().stream())
+                .reduce(new Fraction(), (accumulator, current) -> {
+                    accumulator.multiply(current);
+                    return accumulator;
+                });
+    }
 }
