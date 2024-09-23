@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 
 public class UsersDatabaseTest {
 
-    UsersDatabase usersDatabase = new UsersDatabase();
+    final UsersDatabase usersDatabase = new UsersDatabase();
 
     @Test
     public void testFindFractionMultiplicationByUserFamilyName(){
