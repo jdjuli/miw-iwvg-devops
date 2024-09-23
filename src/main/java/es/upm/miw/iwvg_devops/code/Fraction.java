@@ -145,10 +145,17 @@ public class Fraction {
      * Creates a new instance of Fraction preserving its value
      * @return Fraction cloned instance
      */
-    @SuppressWarnings("MethodDoesntCallSuperMethod")
     @Override
     public Fraction clone() {
-        return new Fraction(numerator, denominator);
+        Fraction clone;
+        try {
+            clone = (Fraction) super.clone();
+        } catch (CloneNotSupportedException cnse){
+            clone = new Fraction();
+        }
+        clone.setNumerator(numerator);
+        clone.setDenominator(denominator);
+        return clone;
     }
 
     @Override

@@ -3,17 +3,17 @@ package es.upm.miw.iwvg_devops.code;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class FractionTest {
+class FractionTest {
 
     @Test
-    public void testDefaultConstructor() {
+    void testDefaultConstructor() {
         Fraction fraction = new Fraction();
         Assertions.assertEquals(1, fraction.getNumerator());
         Assertions.assertEquals(1, fraction.getDenominator());
     }
 
     @Test
-    public void testDecimal() {
+    void testDecimal() {
         Fraction fraction = new Fraction(2, 3);
         Assertions.assertEquals((double) 2 / 3, fraction.decimal(), 1e-5);
         fraction.setDenominator(0);
@@ -23,7 +23,7 @@ public class FractionTest {
     }
 
     @Test
-    public void testIsProper() {
+    void testIsProper() {
         Fraction fraction1 = new Fraction(2, 3);
         Fraction fraction2 = new Fraction(5, 4);
         Fraction fraction3 = new Fraction();
@@ -33,7 +33,7 @@ public class FractionTest {
     }
 
     @Test
-    public void testIsImproper() {
+    void testIsImproper() {
         Fraction fraction1 = new Fraction(2, 3);
         Fraction fraction2 = new Fraction(5, 4);
         Fraction fraction3 = new Fraction();
@@ -43,7 +43,7 @@ public class FractionTest {
     }
 
     @Test
-    public void testIsEquivalent() {
+    void testIsEquivalent() {
         Fraction fraction1 = new Fraction(2, 3);
         Fraction fraction2 = new Fraction(5, 4);
         Fraction fraction3 = new Fraction(10, 15);
@@ -52,7 +52,7 @@ public class FractionTest {
     }
 
     @Test
-    public void testAdd() {
+    void testAdd() {
         Fraction fraction1 = new Fraction(2, 3);
         Fraction fraction2 = new Fraction(5, 4);
         Fraction fraction3 = new Fraction(1, 1);
@@ -63,7 +63,7 @@ public class FractionTest {
     }
 
     @Test
-    public void testMultiply() {
+    void testMultiply() {
         Fraction fraction1 = new Fraction(2, 3);
         Fraction fraction2 = new Fraction(5, 4);
         Fraction fraction3 = new Fraction();
@@ -74,7 +74,7 @@ public class FractionTest {
     }
 
     @Test
-    public void testDivide() {
+    void testDivide() {
         Fraction fraction1 = new Fraction(2, 3);
         Fraction fraction2 = new Fraction(5, 4);
         Fraction fraction3 = new Fraction();
@@ -85,7 +85,7 @@ public class FractionTest {
     }
 
     @Test
-    public void testToString() {
+    void testToString() {
         Fraction fraction = new Fraction(4, 5);
         Assertions.assertEquals("Fraction{numerator=4, denominator=5}", fraction.toString());
     }
