@@ -67,4 +67,12 @@ public class UsersDatabase {
                     return accumulator;
                 });
     }
+
+    public Fraction findFirstProperFractionByUserId(String id) {
+        return findAll().filter(user -> user.getId().equals(id))
+                .flatMap(user -> user.getFractions().stream())
+                .filter(Fraction::isProper)
+                .findFirst()
+                .orElse(null);
+    }
 }
