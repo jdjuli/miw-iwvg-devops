@@ -14,7 +14,7 @@
 
     <artifactId>iwvg-devops-sanchez-julian</artifactId>
     <groupId>es.upm.miw</groupId>
-    <version>4.2.0-RELEASE</version>
+    <version>4.2.1-RELEASE</version>
     <packaging>jar</packaging>
 
     <name>${project.groupId}.${project.artifactId}</name>
