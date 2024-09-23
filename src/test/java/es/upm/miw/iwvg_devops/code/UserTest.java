@@ -6,16 +6,16 @@ import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 
-public class UserTest {
+class UserTest {
     private User johnDoe;
 
     @BeforeEach
-    public void setUp() {
+    void setUp() {
         johnDoe = new User("userId", "John", "Doe", new ArrayList<>());
     }
 
     @Test
-    public void testConstructor() {
+    void testConstructor() {
         Assertions.assertEquals("userId", johnDoe.getId());
         Assertions.assertEquals("John", johnDoe.getName());
         Assertions.assertEquals("Doe", johnDoe.getFamilyName());
@@ -23,7 +23,7 @@ public class UserTest {
     }
 
     @Test
-    public void testDefaultConstructor() {
+    void testDefaultConstructor() {
         johnDoe = new User();
         johnDoe.setName("John");
         johnDoe.setFamilyName("Doe");
@@ -35,7 +35,7 @@ public class UserTest {
     }
 
     @Test
-    public void testFractionListManipulation(){
+    void testFractionListManipulation(){
         Fraction fraction1 = new Fraction();
         Assertions.assertTrue(johnDoe.getFractions().isEmpty());
         johnDoe.getFractions().add(fraction1);
@@ -50,7 +50,7 @@ public class UserTest {
     }
 
     @Test
-    public void testInitials(){
+    void testInitials(){
         Assertions.assertEquals("J.D.", johnDoe.initials());
         johnDoe.setName("Name");
         johnDoe.setFamilyName("FamilyName");
@@ -58,12 +58,12 @@ public class UserTest {
     }
 
     @Test
-    public void testFullName(){
+    void testFullName(){
         Assertions.assertEquals("John Doe", johnDoe.fullName());
     }
 
     @Test
-    public void testToString(){
+    void testToString(){
         String toStringRegexr = "User\\{id='userId', name='John', familyName='Doe', fractions=\\[.*]}";
         String stringEmptyList = johnDoe.toString();
         johnDoe.getFractions().add(new Fraction());
