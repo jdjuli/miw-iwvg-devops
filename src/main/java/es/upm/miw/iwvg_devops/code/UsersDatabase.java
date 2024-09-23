@@ -58,4 +58,13 @@ public class UsersDatabase {
                     return accumulator;
                 });
     }
+
+    public Fraction findFractionDivisionByUserId(String id) {
+        return findAll().filter(user -> user.getId().equals(id))
+                .flatMap(user -> user.getFractions().stream())
+                .reduce(new Fraction(), (accumulator, current) -> {
+                    accumulator.divide(current);
+                    return accumulator;
+                });
+    }
 }
