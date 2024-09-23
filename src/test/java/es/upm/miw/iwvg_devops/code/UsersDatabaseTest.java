@@ -40,4 +40,22 @@ class UsersDatabaseTest {
         Fraction fractionUserId6 = usersDatabase.findFractionDivisionByUserId("6");
         Assertions.assertTrue(Double.isNaN(fractionUserId6.decimal()));
     }
+
+    @Test
+    void findFirstProperFractionByUserId() {
+        Fraction fractionNonExisting = usersDatabase.findFirstProperFractionByUserId("NonExistingId");
+        Assertions.assertNull(fractionNonExisting);
+        Fraction fractionUserId1 = usersDatabase.findFirstProperFractionByUserId("1");
+        Assertions.assertEquals(0.0, fractionUserId1.decimal(), 1e-5);
+        Fraction fractionUserId2 = usersDatabase.findFirstProperFractionByUserId("2");
+        Assertions.assertEquals(-0.2, fractionUserId2.decimal(), 1e-5);
+        Fraction fractionUserId3 = usersDatabase.findFirstProperFractionByUserId("3");
+        Assertions.assertEquals(0.2, fractionUserId3.decimal(), 1e-5);
+        Fraction fractionUserId4 = usersDatabase.findFirstProperFractionByUserId("4");
+        Assertions.assertNull(fractionUserId4);
+        Fraction fractionUserId5 = usersDatabase.findFirstProperFractionByUserId("5");
+        Assertions.assertEquals(0.0, fractionUserId5.decimal(), 1e-5);
+        Fraction fractionUserId6 = usersDatabase.findFirstProperFractionByUserId("6");
+        Assertions.assertNull(fractionUserId6);
+    }
 }
