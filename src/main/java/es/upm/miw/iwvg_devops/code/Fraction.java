@@ -57,7 +57,7 @@ public class Fraction {
      * @param other Fraction to be compared with
      * @return true if fractions represent the same number and false otherwise
      */
-    public boolean equivalent(Fraction other) {
+    public boolean isEquivalent(Fraction other) {
         Fraction clone = clone();
         clone.subtract(other);
         return clone.numerator == 0;
@@ -70,8 +70,8 @@ public class Fraction {
      */
     public void add(Fraction other) {
         int denominatorsLCM = leastCommonMultiple(denominator, other.denominator);
-        setNumerator(numerator * denominatorsLCM + other.numerator * denominatorsLCM);
-        setDenominator(denominator * denominatorsLCM);
+        setNumerator(numerator * (denominatorsLCM / denominator) + other.numerator * (denominatorsLCM / other.denominator));
+        setDenominator(denominatorsLCM);
     }
 
     /**
@@ -141,6 +141,10 @@ public class Fraction {
         return a * (b / greatestCommonDivisor(a, b));
     }
 
+    /**
+     * Creates a new instance of Fraction preserving its value
+     * @return Fraction cloned instance
+     */
     @Override
     public Fraction clone() {
         Fraction fraction;
