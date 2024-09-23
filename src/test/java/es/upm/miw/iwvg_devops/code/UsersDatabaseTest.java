@@ -10,21 +10,21 @@ class UsersDatabaseTest {
     final UsersDatabase usersDatabase = new UsersDatabase();
 
     @Test
-    void testFindFractionMultiplicationByUserFamilyName(){
+    void testFindFractionMultiplicationByUserFamilyName() {
         Fraction fractionNonExisting = usersDatabase.findFractionMultiplicationByUserFamilyName("NonExistingFamilyName");
         Assertions.assertEquals(1.0, fractionNonExisting.decimal(), 1e-5);
         Fraction fractionFernandez = usersDatabase.findFractionMultiplicationByUserFamilyName("Fernandez");
         Assertions.assertEquals(0.0, fractionFernandez.decimal(), 1e-5);
         Fraction fractionBlanco = usersDatabase.findFractionMultiplicationByUserFamilyName("Blanco");
         Assertions.assertEquals(0.0, fractionBlanco.decimal(), 1e-5);
-        Fraction fractionLopez= usersDatabase.findFractionMultiplicationByUserFamilyName("López");
+        Fraction fractionLopez = usersDatabase.findFractionMultiplicationByUserFamilyName("López");
         Assertions.assertEquals(-0.05, fractionLopez.decimal(), 1e-5);
-        Fraction fractionTorres= usersDatabase.findFractionMultiplicationByUserFamilyName("Torres");
+        Fraction fractionTorres = usersDatabase.findFractionMultiplicationByUserFamilyName("Torres");
         Assertions.assertTrue(Double.isNaN(fractionTorres.decimal()));
     }
 
     @Test
-    void testFindFractionDivisionByUserId(){
+    void testFindFractionDivisionByUserId() {
         Fraction fractionNonExisting = usersDatabase.findFractionDivisionByUserId("NonExistingId");
         Assertions.assertEquals(1.0, fractionNonExisting.decimal(), 1e-5);
         Fraction fractionUserId1 = usersDatabase.findFractionDivisionByUserId("1");
@@ -44,7 +44,7 @@ class UsersDatabaseTest {
     }
 
     @Test
-    void findFirstProperFractionByUserId() {
+    void testFindFirstProperFractionByUserId() {
         Fraction fractionNonExisting = usersDatabase.findFirstProperFractionByUserId("NonExistingId");
         Assertions.assertNull(fractionNonExisting);
         Fraction fractionUserId1 = usersDatabase.findFirstProperFractionByUserId("1");
@@ -62,7 +62,7 @@ class UsersDatabaseTest {
     }
 
     @Test
-    void findUserIdByAllProperFraction() {
+    void testFindUserIdByAllProperFraction() {
         Stream<String> userIds = usersDatabase.findUserIdByAllProperFraction();
         Assertions.assertEquals(0, userIds.count());
     }
