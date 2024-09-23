@@ -35,7 +35,7 @@ class UserTest {
     }
 
     @Test
-    void testFractionListManipulation(){
+    void testFractionListManipulation() {
         Fraction fraction1 = new Fraction();
         Assertions.assertTrue(johnDoe.getFractions().isEmpty());
         johnDoe.getFractions().add(fraction1);
@@ -50,7 +50,7 @@ class UserTest {
     }
 
     @Test
-    void testInitials(){
+    void testInitials() {
         Assertions.assertEquals("J.D.", johnDoe.initials());
         johnDoe.setName("Name");
         johnDoe.setFamilyName("FamilyName");
@@ -58,12 +58,12 @@ class UserTest {
     }
 
     @Test
-    void testFullName(){
+    void testFullName() {
         Assertions.assertEquals("John Doe", johnDoe.fullName());
     }
 
     @Test
-    void testToString(){
+    void testToString() {
         String toStringRegexr = "User\\{id='userId', name='John', familyName='Doe', fractions=\\[.*]}";
         String stringEmptyList = johnDoe.toString();
         johnDoe.getFractions().add(new Fraction());
